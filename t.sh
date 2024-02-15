@@ -38,6 +38,7 @@ cp bin/verilator_includer build/install/bin/
 # #############################################################################
 
 verilator --help
+verilator --help >demos/verilator.help.log
 
 pushd examples/make_hello_binary
 make
@@ -49,3 +50,7 @@ cmake .
 cmake --build .
 ./example
 popd
+
+rm -rf obj_dir/
+verilator --binary -j 0 examples/make_hello_binary/top.v
+obj_dir/Vtop
