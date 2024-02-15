@@ -464,7 +464,8 @@ add_executable(${verilator}
 
 set_target_properties(${verilator} PROPERTIES
     OUTPUT_NAME_RELEASE   verilator_bin
-    OUTPUT_NAME_DEBUG     verilator_bin_dbg
+    OUTPUT_NAME_DEBUG     verilator_bin
+    # OUTPUT_NAME_DEBUG     verilator_bin_dbg
     OUTPUT_NAME_COVERAGE  verilator_coverage_bin_dbg
     #UNITY_BUILD $<IF:$<CONFIG:DEBUG>,FALSE,${CMAKE_UNITY_BUILD}>
     MSVC_RUNTIME_LIBRARY  MultiThreaded$<IF:$<CONFIG:Release>,,DebugDLL>

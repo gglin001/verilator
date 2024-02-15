@@ -1,0 +1,13 @@
+{
+  "terminal.integrated.env.linux": {
+    "EXT_PATH": "${workspaceFolder}/build/install/bin",
+    "VERILATOR_ROOT": "${workspaceFolder}/build/install",
+  },
+  "terminal.integrated.env.osx": {
+    "EXT_PATH": "${workspaceFolder}/build/install/bin",
+    "VERILATOR_ROOT": "${workspaceFolder}/build/install",
+  },
+  "cmake.configureSettings": {
+    "CMAKE_INSTALL_PREFIX": "${workspaceFolder}/build/install",
+  }
+}
