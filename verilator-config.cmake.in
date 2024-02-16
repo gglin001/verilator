@@ -206,7 +206,8 @@ function(verilate TARGET)
 
   get_target_property(BINARY_DIR "${TARGET}" BINARY_DIR)
   get_target_property(TARGET_NAME "${TARGET}" NAME)
-  set(VDIR "${BINARY_DIR}/CMakeFiles/${TARGET_NAME}.dir/${VERILATE_PREFIX}.dir")
+  # set(VDIR "${BINARY_DIR}/CMakeFiles/${TARGET_NAME}.dir/${VERILATE_PREFIX}.dir")
+  set(VDIR "${BINARY_DIR}/${TARGET_NAME}.dir/${VERILATE_PREFIX}.dir")
 
   if (VERILATE_DIRECTORY)
     set(VDIR "${VERILATE_DIRECTORY}")

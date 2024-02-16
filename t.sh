@@ -16,6 +16,7 @@ apt install -y locales
 apt install -y bison
 apt install -y flex
 apt install -y gperf
+apt install -y graphviz
 micromamba install bear abseil-cpp
 
 # optional
