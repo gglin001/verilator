@@ -11,5 +11,6 @@
   },
   "cmake.configureSettings": {
     "CMAKE_INSTALL_PREFIX": "${workspaceFolder}/build/install",
+    "CMAKE_CXX_STANDARD": "14",
   }
 }

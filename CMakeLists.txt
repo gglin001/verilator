@@ -23,8 +23,6 @@ project(Verilator
 option(DEBUG_AND_RELEASE_AND_COVERAGE
     "Builds both the debug and release binaries, overriding CMAKE_BUILD_TYPE. Not supported under MSBuild.")
 
-set(CMAKE_CXX_STANDARD 14)
-
 find_package(Python3 COMPONENTS Interpreter)
 set(PYTHON3 Python3::Interpreter)
 set(CMAKE_INSTALL_DATADIR ${CMAKE_INSTALL_PREFIX})
