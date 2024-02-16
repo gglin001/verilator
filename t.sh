@@ -69,3 +69,13 @@ popd
 pushd examples/cmake_hello_sc
 bash t.sh
 popd
+
+# test_regress
+verilator --cc -j 0 \
+  --runtime-debug \
+  --build \
+  --binary \
+  -DTEST_VERBOSE=1 \
+  --Mdir demos/demo \
+  test_regress/t/t_randc.v
+demos/demo/Vt_randc
