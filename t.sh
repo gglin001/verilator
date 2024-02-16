@@ -26,35 +26,45 @@ micromamba install bear abseil-cpp
 sudo locale-gen en_US en_US.UTF-8
 sudo dpkg-reconfigure locales
 
+# cmake(build verilator) + make(`examples/make_*`)
 # start build
 autoconf
-
 # just configure, do not build
 CC=clang \
   CXX=clang++ \
   ./configure --prefix=$PWD/build/install_2
-
-# build with cmake target `install`
-
+# build with cmake target `install`(in vscode)
 cp include/verilated.mk build/install/include/
 cp bin/verilator_includer build/install/bin/
+
+# only for cmake based examples
+# build with cmake target `inwstall`(in vscode)
 
 # #############################################################################
 
 verilator --help
 verilator --help >demos/verilator.help.log
 
+# need make
+verilator --cc -j 0 \
+  --runtime-debug \
+  --build \
+  --binary \
+  --Mdir demos/top_cc \
+  examples/make_hello_binary/top.v
+
+# need make
 pushd examples/make_hello_binary
 make
 ./obj_dir/Vtop
 popd
 
+# cmake
 pushd examples/cmake_hello_c
-cmake .
-cmake --build .
-./example
+bash t.sh
 popd
 
-rm -rf obj_dir/
-verilator --binary -j 0 examples/make_hello_binary/top.v
-obj_dir/Vtop
+# cmake
+pushd examples/cmake_hello_sc
+bash t.sh
+popd
