@@ -17,11 +17,13 @@ cmake_policy(SET CMP0091 NEW) # Use MSVC_RUNTIME_LIBRARY to select the runtime
 project(Verilator
     VERSION 5.021
     HOMEPAGE_URL https://verilator.org
-    LANGUAGES CXX
+    LANGUAGES C CXX
 )
 
 option(DEBUG_AND_RELEASE_AND_COVERAGE
     "Builds both the debug and release binaries, overriding CMAKE_BUILD_TYPE. Not supported under MSBuild.")
+
+set(CMAKE_CXX_STANDARD 14)
 
 find_package(Python3 COMPONENTS Interpreter)
 set(PYTHON3 Python3::Interpreter)
@@ -71,6 +73,17 @@ endif()
 
 find_package(BISON)
 find_package(FLEX)
+
+include(FetchContent)
+set(FETCHCONTENT_QUIET FALSE)
+# systemc
+FetchContent_Declare(
+  systemc
+  SYSTEM OVERRIDE_FIND_PACKAGE
+  GIT_REPOSITORY https://github.com/accellera-official/systemc.git
+  GIT_TAG 2.3.4
+  GIT_SHALLOW TRUE)
+FetchContent_MakeAvailable(systemc)
 
 # Build
 #set_property(GLOBAL PROPERTY JOB_POOLS one_job=1)

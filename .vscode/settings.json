@@ -2,10 +2,12 @@
   "terminal.integrated.env.linux": {
     "EXT_PATH": "${workspaceFolder}/build/install/bin",
     "VERILATOR_ROOT": "${workspaceFolder}/build/install",
-  },
-  "terminal.integrated.env.osx": {
-    "EXT_PATH": "${workspaceFolder}/build/install/bin",
-    "VERILATOR_ROOT": "${workspaceFolder}/build/install",
+    // from apt
+    // "SYSTEMC_INCLUDE": "/usr/include",
+    // "SYSTEMC_LIBDIR": "/usr/lib/aarch64-linux-gnu",
+    // from cmake dep
+    "SYSTEMC_INCLUDE": "${workspaceFolder}/build/install/include",
+    "SYSTEMC_LIBDIR": "${workspaceFolder}/build/install/lib",
   },
   "cmake.configureSettings": {
     "CMAKE_INSTALL_PREFIX": "${workspaceFolder}/build/install",

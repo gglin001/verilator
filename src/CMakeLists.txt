@@ -360,7 +360,8 @@ add_custom_command(
         ${BISONPRE} --yacc "${BISON_EXECUTABLE}" -d -v
             -o "${BISON_V3ParseBison_OUTPUT_SOURCE}" "${verilog_y}"
 )
-list(APPEND GENERATED_FILES V3ParseBison.c V3ParseBison.h)
+# list(APPEND GENERATED_FILES V3ParseBison.c V3ParseBison.h)
+list(APPEND GENERATED_FILES V3ParseBison.h)
 # Output used directly by the `verilator` target
 
 set(verilog_l "${srcdir}/verilog.l")
@@ -461,6 +462,10 @@ add_executable(${verilator}
     $<$<NOT:$<CONFIG:COVERAGE>>:${GENERATED_FILES}>
     $<$<CONFIG:COVERAGE>:${COVERAGE_SOURCES} config_rev.h>
 )
+
+# # systemc
+# target_include_directories(${verilator} PUBLIC "${systemc_SOURCE_DIR}/src")
+# target_link_libraries(${verilator} SystemC::systemc)
 
 set_target_properties(${verilator} PROPERTIES
     OUTPUT_NAME_RELEASE   verilator_bin

@@ -18,6 +18,10 @@ apt install -y flex
 apt install -y gperf
 micromamba install bear abseil-cpp
 
+# optional
+# # micromamba install systemc systemc-dev
+# apt install -y libsystemc libsystemc-dev
+
 # for locales warn
 sudo locale-gen en_US en_US.UTF-8
 sudo dpkg-reconfigure locales
